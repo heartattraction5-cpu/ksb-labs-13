@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "KSB LABS Video Studio",
+  "version": "13.0",
+  "description": "General knowledge quiz table editor with 26 languages, voice characters, fonts, backgrounds, dark mode and one-click video maker.",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://translate.google.com/*",
+    "https://translate.googleapis.com/*",
+    "https://*.supabase.co/*"
+  ],
+  "action": {
+    "default_title": "KSB LABS Video Studio"
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}

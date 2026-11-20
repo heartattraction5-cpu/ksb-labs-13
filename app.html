@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KSB LABS – Video Studio</title>
+<link rel="stylesheet" href="fonts.css">
+<link rel="stylesheet" href="app.css"></head>
+<body class="locked">
+
+<section id="auth" class="authwrap" hidden>
+  <div class="auth-brand"><div class="a-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 13 5.2 3.5a.5.5 0 0 0 .8-.4V7.9a.5.5 0 0 0-.8-.4L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg></div><div><b>KSB LABS</b><span>VIDEO STUDIO</span></div></div>
+  <div class="auth-card">
+    <div class="a-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg> Verified Gmail access</div>
+    <h2 id="aTitle">Welcome back</h2><p id="aSub" class="a-sub">Sign in to open your video studio dashboard.</p>
+    <div class="a-tabs"><button type="button" id="aTabLogin" class="on">Log in</button><button type="button" id="aTabSignup">Sign up</button></div>
+    <div id="aMsg" class="a-msg" hidden></div>
+    <form id="aForm" novalidate>
+      <label class="a-field" id="fName" hidden><span>Full Name</span><div class="a-in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><input id="aName" type="text" placeholder="Your full name" autocomplete="name"></div></label>
+      <label class="a-field"><span>Gmail Address</span><div class="a-in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg><input id="aEmail" type="email" placeholder="you@gmail.com" autocomplete="email"></div></label>
+      <label class="a-field"><span>Password</span><div class="a-in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><input id="aPass" type="password" placeholder="••••••••" autocomplete="current-password"><button type="button" id="eye" class="a-eye" title="Show / hide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></button></div></label>
+      <div class="a-row"><label class="a-check"><input type="checkbox" id="aRemember" checked> Remember Me</label><a href="#" id="forgot">Forgot Password?</a></div>
+      <button id="aSubmit" class="a-btn" type="submit"><span id="aSubmitIcon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21 2-9.6 9.6"/><circle cx="7.5" cy="15.5" r="5.5"/><path d="m15.5 7.5 3 3L22 7l-3-3"/></svg></span><span id="aSubmitTxt">Log in to KSB LABS</span></button>
+    </form>
+    <p class="a-foot">🎁 Every new account gets 1 free video — no approval needed.</p>
+    <div class="wa-box" data-wa></div>
+  </div>
+</section>
+<section id="gate" class="authwrap" hidden>
+  <div class="auth-brand"><div class="a-logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 13 5.2 3.5a.5.5 0 0 0 .8-.4V7.9a.5.5 0 0 0-.8-.4L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg></div><div><b>KSB LABS</b><span>VIDEO STUDIO</span></div></div>
+  <div class="auth-card gate-card">
+    <div id="gIcon" class="g-icon">⏳</div><h2 id="gTitle"></h2><p id="gText" class="a-sub"></p>
+    <div class="wa-box" data-wa></div>
+    <button id="gRetry" class="a-btn" type="button">Check again</button>
+    <button id="gLogout" class="a-btn ghost" type="button">Log out</button>
+  </div>
+</section>
+<div id="plansModal" class="pm" hidden role="dialog" aria-modal="true" aria-labelledby="pmTitle">
+  <div class="pm-box">
+    <button id="pmClose" class="pm-x" type="button" aria-label="Close">✕</button>
+    <h2 id="pmTitle">Choose your plan · اپنا پلان چنیں</h2>
+    <p id="pmSub" class="pm-sub"></p>
+    <div id="pmGrid" class="pm-grid"></div>
+    <p class="pm-note">Button dabate hi admin ke pehle WhatsApp number par chat khul jayegi · بٹن دبائیں، ایڈمن کے واٹس ایپ پر چیٹ کھل جائے گی۔<br>Payment ke baad admin aapke account mein videos add kar dega.</p>
+    <button id="pmRefresh" class="pm-ref" type="button">⟳ Videos mil gayin? Check again</button>
+  </div>
+</div>
+<div id="toast" class="toast"></div>
+<header class="top">
+  <div class="brand"><div class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 13 5.2 3.5a.5.5 0 0 0 .8-.4V7.9a.5.5 0 0 0-.8-.4L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg></div><div><h1>KSB LABS</h1><p>VIDEO STUDIO</p></div></div>
+  <nav class="tabs"><button id="tabEdit" class="tab on">📝 Editor</button><button id="tabPlay" class="tab">🎬 Quiz Studio</button><button id="tabAdmin" class="tab" hidden>🛡 Admin</button></nav>
+  <div class="uchip" id="uchip" hidden><div class="uav" id="uav">A</div><div class="uinfo"><b id="uname"></b><span id="uquota"></span></div><button id="plansBtn" class="wbtn sm plans-btn" hidden>💎 Plans</button><button id="logoutBtn" class="wbtn sm">Log out</button></div>
+  <button id="themeBtn" class="icon" title="Dark / Light mode">🌙</button>
+</header>
+
+<main>
+<section id="edit">
+  <div class="card">
+    <div class="card-h"><h2>Question Table</h2><span id="count" class="pill"></span></div>
+    <div class="bar">
+      <button id="add1">＋ 1 Row</button>
+      <button id="add20">＋ 20 Blank Rows</button>
+      <button id="imp" class="primary">📥 Bulk Import</button>
+      <button id="clr" class="danger">🗑 Delete All</button>
+    </div>
+    <div id="impBox" hidden>
+      <p>Excel / Google Sheet / Word / Markdown table seedha yahan paste karo — khud add ho jayegi (answer A/B/C/D, 1-4 ya sahi option ka text, teeno chalenge). Format: <code>Question | A | B | C | D | Answer</code></p>
+      <textarea id="impTxt" rows="8" placeholder="Yahan Ctrl+V karo..."></textarea>
+      <button id="impOk" class="primary">Add to table</button>
+    </div>
+    <div class="wrap"><table>
+      <thead><tr><th>#</th><th>Question</th><th>A</th><th>B</th><th>C</th><th>D</th><th>Answer</th><th>Font</th><th></th></tr></thead>
+      <tbody id="rows"></tbody>
+    </table></div>
+    <div class="bar dl"><b>⬇ Download</b>
+      <select id="dlFmt"><option value="txt">TXT (Bulk Import format)</option><option value="csv">CSV (Excel)</option><option value="json">JSON</option></select>
+      <button id="dlAll" class="go">Download All Questions</button></div>
+  </div>
+</section>
+
+<section id="play" hidden>
+  <div class="play-grid">
+    <div class="stage">
+      <div class="card">
+        <div class="stage-top">
+          <label class="field inline">Go to question <select id="jump"></select></label>
+          <label class="field inline">This question's font <select id="qfont"></select></label>
+        </div>
+        <div class="slide" id="slide" data-design="circles">
+          <div class="deco"></div><div class="blob b1"></div><div class="blob b2"></div>
+          <div class="wm" id="wmEl"></div>
+          <canvas id="ioCv" width="1280" height="720" hidden></canvas>
+          <div class="qnum" id="qnum"></div>
+          <div class="inner">
+            <div class="qbox"><h2 id="qtext"></h2></div>
+            <div class="opts" id="opts"></div>
+            <div class="foot">
+              <div class="lbar" id="lbar"><div class="fill" id="fill"></div></div>
+              <div class="ans" id="ans"></div>
+            </div>
+          </div>
+        </div>
+        <div class="bar center">
+          <button id="prev">⏮ Prev</button>
+          <button id="readQ">🔊 Read Question</button>
+          <button id="showA">✅ Show + Read Answer</button>
+          <button id="next">Next ⏭</button>
+          <button id="auto" class="go">▶ Auto Play</button>
+          <button id="stop" class="danger">⏹ Stop</button>
+        </div>
+      </div>
+      <div class="card">
+        <div class="fields vt-box"><label class="field full">🎬 Video Title <b class="req">*</b> <span class="vt-sub">(zaroori · ویڈیو کا ٹائٹل)</span><input id="vtitle" type="text" maxlength="120" autocomplete="off" placeholder="Is video ka title likho, e.g. General Knowledge Quiz #12"></label></div>
+        <div class="bar center">
+          <button id="mk" class="rec">⬇ Create &amp; Download Video (with voice)</button>
+          <button id="cancel" class="danger" hidden>Cancel</button>
+        </div>
+        <label class="check" style="justify-content:center"><input type="checkbox" id="smooth" checked><span class="sw"></span> Smooth export (tez, bina atke, awaaz-video sync)</label>
+        <div id="prog" hidden><div id="progTxt"></div><div class="pbar"><div id="pfill"></div></div></div>
+        <div class="center"><canvas id="cv" width="1280" height="720" hidden></canvas></div>
+        <div id="result" class="center" hidden><video id="out" controls></video><br><a id="dlv" class="btnlink">⬇ Download video again</a></div>
+        <p class="hint">One click: voice + tick + loading bar ke sath video ban kar khud download ho jati hai. Smooth export ON ho to video tez aur bina atke banti hai (tab chhupa bhi sakte ho). OFF ho to purane live-record tareeqe se banti hai (tab khula rakhna zaroori). Internet zaroori hai (voice online se aati hai).</p>
+        <div class="bar center"><button id="rec" class="ghost">Backup: live screen record (tab audio)</button></div>
+      </div>
+    </div>
+
+    <aside class="side">
+      <div class="card">
+        <h3>🎙 Voice</h3>
+        <div class="fields">
+          <label class="field full">Language <select id="lang"></select></label>
+          <label class="field full">Voice character <select id="voice"></select></label>
+          <label class="field">Speed <span id="rateV" class="val"></span><input id="rate" type="range" min="0.6" max="1.4" step="0.1" value="1"></label>
+          <label class="field">Loading time (sec) <input id="delay" type="number" value="6" min="2" max="60"></label>
+        </div>
+      </div>
+      <div class="card">
+        <h3>🎞 Intro &amp; Outro</h3>
+        <div class="fields">
+          <label class="check full"><input type="checkbox" id="introOn"><span class="sw"></span> Add Intro (video ke shuru mein)</label>
+          <label class="field full">Intro animation
+            <select id="introAnim"><option value="type">Typewriter</option><option value="fade">Fade Up (line by line)</option><option value="zoom">Zoom / Pop (word by word)</option><option value="highlight">Word Highlight (jo bola jaye)</option><option value="glow">Glow &amp; Bounce</option><option value="none">No animation</option></select></label>
+          <label class="field full">Intro text <textarea id="introText" rows="3" placeholder="Intro ka text yahan likho (kisi bhi language mein)"></textarea></label>
+          <button id="prevIntro" class="ghost full sm">▶ Preview Intro</button>
+          <label class="check full"><input type="checkbox" id="outroOn"><span class="sw"></span> Add Outro (video ke aakhir mein)</label>
+          <label class="field full">Outro animation
+            <select id="outroAnim"><option value="type">Typewriter</option><option value="fade">Fade Up (line by line)</option><option value="zoom">Zoom / Pop (word by word)</option><option value="highlight">Word Highlight (jo bola jaye)</option><option value="glow">Glow &amp; Bounce</option><option value="none">No animation</option></select></label>
+          <label class="field full">Outro text <textarea id="outroText" rows="3" placeholder="Outro ka text yahan likho"></textarea></label>
+          <button id="prevOutro" class="ghost full sm">▶ Preview Outro</button>
+        </div>
+      </div>
+      <div class="card">
+        <h3>🎵 Background Music</h3>
+        <div class="fields">
+          <label class="check full"><input type="checkbox" id="musicOn"><span class="sw"></span> Add background music (Intro + sawal + Outro mein)</label>
+          <label class="field full">Music (apni list se chuno)<select id="musicSel"></select></label>
+          <div class="full mrow"><button id="musicAdd" class="sm primary" type="button">＋ Add music file</button><button id="musicPrev" class="sm ghost" type="button">▶ Preview / ■</button><button id="musicDel" class="sm danger" type="button">🗑 Delete</button></div>
+          <input type="file" id="musicFile" accept="audio/*" hidden>
+          <p class="note full">YouTube Audio Library se music pehle apne computer mein download karo, phir yahan "Add music file" se chuno. Ek baar add karne ke baad dobara upload ki zaroorat nahi.</p>
+          <div class="field full"><span>Music ki awaaz (volume) – apne haath se kam / zyada</span>
+            <div class="vrow"><button id="musicVolMinus" class="sm" type="button" title="Kam karo (−5)">−</button><input id="musicVol" type="range" min="1" max="100" step="1" value="20"><button id="musicVolPlus" class="sm" type="button" title="Zyada karo (+5)">＋</button><input id="musicVolN" type="number" min="1" max="100" class="vnum"><b>%</b></div></div>
+          <label class="check full"><input type="checkbox" id="musicDuck"><span class="sw"></span> Auto-lower: jab awaaz bole to music khud dheemi ho</label>
+          <div class="field full"><span>Awaaz ke waqt music kitni dheemi ho (auto-lower level)</span>
+            <div class="vrow"><button id="duckMinus" class="sm" type="button" title="Kam karo (−5)">−</button><input id="duckLvl" type="range" min="1" max="100" step="1" value="20"><button id="duckPlus" class="sm" type="button" title="Zyada karo (+5)">＋</button><input id="duckLvlN" type="number" min="1" max="100" class="vnum"><b>%</b></div></div>
+          <label class="field">Music kitni der chale
+            <select id="musicLen"><option value="0">Poori video</option><option value="5">5 second</option><option value="10">10 second</option><option value="20">20 second</option><option value="30">30 second</option><option value="custom">Apna number...</option></select></label>
+          <label class="field">Music kahan se shuru (sec)<input id="musicFrom" type="number" min="0" value="0"></label>
+          <label class="field full"><input id="musicSecs" type="number" min="1" max="3600" value="20" placeholder="Kitne second?" hidden></label>
+          <label class="check full"><input type="checkbox" id="musicLoop"><span class="sw"></span> Loop: gana chhota ho to dohrata rahe</label>
+        </div>
+      </div>
+      <div class="card">
+        <h3>✨ Question animations</h3>
+        <div class="fields">
+          <label class="check full"><input type="checkbox" id="qAnimOn"><span class="sw"></span> Animate questions &amp; options</label>
+          <label class="field full">Entrance style
+            <select id="qAnim"><option value="fade">Fade</option><option value="slide">Slide</option><option value="zoom">Zoom</option><option value="bounce">Bounce</option></select></label>
+          <p class="note full">Question box aate waqt animation, options awaaz ke sath ek ek karke aate hain, aur sahi jawab par green glow + pulse aata hai.</p>
+        </div>
+      </div>
+      <div class="card">
+        <h3>🎨 Appearance</h3>
+        <div class="fields">
+          <label class="field">Background colour <select id="bg"></select></label>
+          <label class="field">Background design <select id="bgDesign"></select></label>
+          <label class="field full">Auto-change background
+            <select id="bgAuto"><option value="off">Off (fixed)</option><option value="colors">Change colour every question</option><option value="both">Change colour + design every question</option></select></label>
+          <label class="field full">Font (all questions) <select id="font"></select></label>
+          <button id="applyFontAll" class="ghost full sm">Reset per-question fonts</button>
+          <label class="field full">Custom image <input id="bgFile" type="file" accept="image/*"></label>
+          <button id="bgReset" class="ghost full sm">Reset image</button>
+          <label class="field">Bar colour
+            <select id="bar"><option value="#2979ff">Blue</option><option value="#e53935">Red</option><option value="#43a047">Green</option><option value="#ffc916">Yellow</option><option value="#ff9800">Orange</option><option value="#ec407a">Pink</option><option value="#ab47bc">Purple</option><option value="#26c6da">Cyan</option><option value="#ffffff">White</option></select>
+          </label>
+          <label class="field">Bar style
+            <select id="barStyle"><option value="smooth">1. Smooth</option><option value="round">2. Rounded</option><option value="seg">3. Segments</option><option value="stripes">4. Moving Stripes</option><option value="gradient">5. Gradient</option><option value="glow">6. Glow</option><option value="dots">7. Dots</option><option value="thin">8. Thin Line</option><option value="neon">9. Neon</option></select>
+          </label>
+        </div>
+      </div>
+      <div class="card">
+        <h3>🏷 Watermark &amp; Range</h3>
+        <div class="fields">
+          <label class="field full">Channel watermark <input id="wm" type="text" placeholder="Channel name"></label>
+          <label class="field">Opacity <span id="wmOpV" class="val"></span><input id="wmOp" type="range" min="0.03" max="1" step="0.01" value="0.25"></label>
+          <label class="field">Size <input id="wmSize" type="range" min="1" max="8" step="0.2" value="2.4"></label>
+          <label class="field full">Position <select id="wmPos"><option value="br">Bottom right</option><option value="bl">Bottom left</option><option value="tr">Top right</option><option value="tl">Top left</option><option value="c">Center</option></select></label>
+          <label class="field">Record from Q# <input id="from" type="number" min="1" placeholder="1"></label>
+          <label class="field">to Q# <input id="to" type="number" min="1" placeholder="last"></label>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<section id="admin" hidden>
+  <div class="card">
+    <div class="card-h"><h2>🛡 User Management</h2><span id="admCount" class="pill"></span></div>
+    <div class="adm-stats">
+      <div><b id="stTotal">0</b><span>Total users</span></div><div class="pend"><b id="stPending">0</b><span>Waiting approval</span></div>
+      <div class="act"><b id="stActive">0</b><span>Active</span></div><div class="blk"><b id="stBlocked">0</b><span>Blocked</span></div>
+    </div>
+    <div class="bar"><input id="admSearch" type="search" placeholder="Search name or Gmail..." style="min-width:260px">
+      <select id="admFilter"><option value="all">All users</option><option value="pending">Waiting approval</option><option value="active">Active</option><option value="blocked">Blocked</option></select>
+      <button id="admRefresh">⟳ Refresh</button></div>
+    <p class="note" style="margin:0 0 10px">Limit: <b>Total</b> = kul itni videos, <b>Per day</b> = har din itni videos (Pakistan time ke mutabiq). −/+ se limit foran badalti hai.</p>
+    <div class="wrap"><table class="adm"><thead><tr><th>User</th><th>Joined</th><th>Status</th><th>Video limit</th><th>Used</th><th>Actions</th></tr></thead><tbody id="admRows"></tbody></table></div>
+  </div>
+</section>
+</main>
+<footer class="app-foot"><div class="wa-box" data-wa></div></footer>
+<script src="config.js"></script>
+<script src="statement.js"></script>
+<script src="auth.js"></script>
+<script src="vidfix.js"></script>
+<script src="lib/mp4-muxer.js"></script>
+<script src="lib/webm-muxer.js"></script>
+<script src="app.js"></script>
+</body></html>
